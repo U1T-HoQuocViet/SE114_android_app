@@ -182,7 +182,6 @@ public class HomeActivity extends AppCompatActivity {
     }
     @Override
     public boolean onContextItemSelected(@NonNull MenuItem item) {
-        Toast.makeText(this, "Bruhaushdua", Toast.LENGTH_SHORT).show();
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
         int position = info.position;
         if (position < 0) return false;
