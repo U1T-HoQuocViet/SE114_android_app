@@ -24,12 +24,14 @@ public class PostRepository {
         ));
     }
 
-    public void addPost(String content, User creator){
+    public Post addPost(String content, User creator){
         Post post = new Post();
         post.content = content;
         post.creator = creator;
         post.createdAt = LocalDateTime.now();
-        posts.add(post);
+        posts.add(0, post);
+
+        return post;
     }
 
     public List<Post> getPosts(){

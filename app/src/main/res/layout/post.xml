@@ -1,63 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingBottom="12dp">
-
-    <LinearLayout
+    <com.google.android.material.card.MaterialCardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:padding="12dp"
-        android:background="@drawable/post_background">
-
+        android:layout_height="wrap_content"
+        app:strokeWidth="5dp"
+        app:strokeColor="@color/black"
+        android:layout_marginBottom="12dp">
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                tools:srcCompat="@tools:sample/avatars" />
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="5dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:orientation="vertical"
-                android:paddingHorizontal="20dp">
+                android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/nameTag"
+                <ImageView
+                    android:id="@+id/user_avatar"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    tools:srcCompat="@tools:sample/avatars" />
+
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="User Name"
-                    android:textSize="20sp" />
+                    android:layout_weight="1"
+                    android:orientation="vertical"
+                    android:paddingHorizontal="20dp">
 
-                <TextView
-                    android:id="@+id/createDate"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="24/3/2026"
-                    android:textColor="#666666"
-                    android:textSize="16sp" />
+                    <TextView
+                        android:id="@+id/nameTag"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="User Name"
+                        android:textSize="20sp" />
+
+                    <TextView
+                        android:id="@+id/createDate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="24/3/2026"
+                        android:textColor="#666666"
+                        android:textSize="16sp" />
+                </LinearLayout>
+
             </LinearLayout>
 
+            <TextView
+                android:id="@+id/contentView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="10dp"
+                android:text="Content"
+                android:layout_marginTop="12dp"
+                android:textSize="20sp" />
+
         </LinearLayout>
-
-        <TextView
-            android:id="@+id/contentView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:paddingHorizontal="10dp"
-            android:text="Content"
-            android:layout_marginTop="12dp"
-            android:textSize="20sp" />
-
-    </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </com.google.android.material.card.MaterialCardView>
