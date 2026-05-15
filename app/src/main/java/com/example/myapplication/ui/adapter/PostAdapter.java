@@ -1,4 +1,4 @@
-package com.example.myapplication.ui.component;
+package com.example.myapplication.ui.adapter;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -6,14 +6,11 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.resource.bitmap.CenterCrop;
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners;
 import com.example.myapplication.R;
-import com.example.myapplication.data.Post;
+import com.example.myapplication.data.model.Post;
 
 import java.time.format.DateTimeFormatter;
 
@@ -65,11 +62,8 @@ import java.time.format.DateTimeFormatter;
 
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.TextView;
+
 import java.util.List;
 
 public class PostAdapter extends ArrayAdapter<Post> {
@@ -109,13 +103,5 @@ public class PostAdapter extends ArrayAdapter<Post> {
         contentTV.setText(mPost.content);
 
         contentTV.setVisibility(mPost.isVisible ? View.VISIBLE : View.GONE);
-    }
-
-    public void hidePost(int position){
-
-    }
-
-    public void detailPost(){
-
     }
 }

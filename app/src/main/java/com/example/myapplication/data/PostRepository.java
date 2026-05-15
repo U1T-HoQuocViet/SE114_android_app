@@ -2,6 +2,9 @@ package com.example.myapplication.data;
 
 import android.content.Context;
 
+import com.example.myapplication.data.model.Post;
+import com.example.myapplication.data.model.User;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Arrays;

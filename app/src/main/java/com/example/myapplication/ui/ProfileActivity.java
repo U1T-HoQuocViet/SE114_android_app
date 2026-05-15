@@ -14,14 +14,18 @@ import androidx.core.view.WindowInsetsCompat;
 import com.bumptech.glide.Glide;
 import com.example.myapplication.R;
 import com.example.myapplication.data.ServiceProvider;
-import com.example.myapplication.data.User;
+import com.example.myapplication.data.model.User;
 import com.example.myapplication.data.UserRepository;
 import com.google.android.material.textfield.TextInputEditText;
 
 public class ProfileActivity extends AppCompatActivity {
     Button logOutButton, saveButton;
+    ImageView backBtn;
     TextInputEditText nameInput, emailInput, addressInput, avatarURLInput, descriptionInput;
     void loadProfileUI(){
+        backBtn = findViewById(R.id.backBtn);
+        backBtn.setOnClickListener(v -> finish());
+
         logOutButton = findViewById(R.id.logOutButton);
         saveButton = findViewById(R.id.saveProfileButton);
 

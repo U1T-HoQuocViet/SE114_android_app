@@ -24,19 +24,15 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.example.myapplication.R;
-import com.example.myapplication.data.Post;
+import com.example.myapplication.data.model.Post;
 import com.example.myapplication.data.PostRepository;
 import com.example.myapplication.data.ServiceProvider;
 import com.example.myapplication.data.UserRepository;
-import com.example.myapplication.ui.component.PostAdapter;
+import com.example.myapplication.ui.adapter.PostAdapter;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 import java.util.stream.Collectors;
 
 public class HomeActivity extends AppCompatActivity {
@@ -52,6 +48,9 @@ public class HomeActivity extends AppCompatActivity {
 
     PostRepository postRepo;
     UserRepository userRepo;
+
+    ImageView btnFriendRequest, btnFriendSuggestion, btnGoToProfile;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,8 +73,11 @@ public class HomeActivity extends AppCompatActivity {
 
         btnOptionMenu = findViewById(R.id.btnOptionMenu);
 
-        feedPosts = new ArrayList<>(postRepo.getPosts());
+        btnFriendRequest = findViewById(R.id.btnFriendRequest);
+        btnFriendSuggestion = findViewById(R.id.btnFriendSuggestion);
+        btnGoToProfile = findViewById(R.id.btnGoToProfile);
 
+        feedPosts = new ArrayList<>(postRepo.getPosts());
 
         postAdapter = new PostAdapter(this, feedPosts);
         postContainer.setAdapter(postAdapter);
@@ -86,6 +88,18 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     void bindActions(){
+        btnFriendSuggestion.setOnClickListener(v -> {
+            startActivity(new Intent(this, FriendSuggestionActivity.class));
+        });
+
+        btnFriendRequest.setOnClickListener(v -> {
+            startActivity(new Intent(this, FriendRequestActivity.class));
+        });
+
+        btnGoToProfile.setOnClickListener(v -> {
+            startActivity(new Intent(this, ProfileActivity.class));
+        });
+
         btnOptionMenu.setOnClickListener(v -> {
             PopupMenu popup = new PopupMenu(this, v);
             popup.getMenuInflater().inflate(R.menu.feed_menu, popup.getMenu());

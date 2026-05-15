@@ -9,6 +9,8 @@ public class ServiceProvider {
     // Repositories
     private UserRepository userRepository;
     private PostRepository postRepository;
+    private FriendRepository friendRepository;
+
 
     private ServiceProvider(Context context) {
         // Use applicationContext to avoid memory leaks
@@ -34,5 +36,12 @@ public class ServiceProvider {
             postRepository = new PostRepository(context);
         }
         return postRepository;
+    }
+
+    public FriendRepository getFriendRepository() {
+        if (friendRepository == null) {
+            friendRepository = new FriendRepository(context);
+        }
+        return friendRepository;
     }
 }

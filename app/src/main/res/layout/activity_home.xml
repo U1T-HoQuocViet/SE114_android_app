@@ -7,6 +7,54 @@
     android:layout_height="match_parent"
     tools:context=".ui.HomeActivity"
     android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/white"
+        android:paddingHorizontal="16dp"
+        android:elevation="4dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="Home"
+            android:textSize="26sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/btnFriendRequest"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_toStartOf="@id/btnGoToProfile"
+            android:layout_marginEnd="12dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/bell_solid_full"
+            android:clickable="true"
+            android:contentDescription="Friend Requests" />
+
+        <ImageView
+            android:id="@+id/btnFriendSuggestion"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_toStartOf="@id/btnFriendRequest"
+            android:layout_marginEnd="12dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/user_group_solid_full"
+            android:clickable="true"
+            android:contentDescription="Friend Suggestion" />
+
+        <ImageView
+            android:id="@+id/btnGoToProfile"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/user_solid_full"
+            android:clickable="true"
+            android:contentDescription="Profile" />
+
+    </RelativeLayout>
 
     <!-- Custom Header for Search and Option Menu -->
     <LinearLayout

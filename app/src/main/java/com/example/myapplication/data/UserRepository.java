@@ -1,21 +1,20 @@
 package com.example.myapplication.data;
 
 import android.content.Context;
-import android.util.Log;
+
+import com.example.myapplication.data.model.User;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
+import java.util.stream.Collectors;
 
 public class UserRepository {
     Context context;
     public User currentUser;
     public List<User> users = new ArrayList<>();;
-    public  UserRepository(Context context){
-
+    public UserRepository(Context context){
         this.context = context;
-
         // mock users
         users.addAll(Arrays.asList(
             new User("Viet", "Bruh", "1"),
@@ -53,6 +52,10 @@ public class UserRepository {
         return true;
     }
 
+    public User getCurrentUser(){
+        return currentUser;
+    }
+
     public User saveProfileData(String address, String avatarURL, String description){
         if(currentUser != null){
             currentUser.address = address;
@@ -60,6 +63,18 @@ public class UserRepository {
             currentUser.description = description;
         }
         return currentUser;
+    }
+
+    public User getUserInfo(String email){
+        return users.stream().filter(x -> x.email.equals(email))
+                .findFirst()
+                .orElse(null);
+    }
+
+    public List<User> getAllUserByPhoneContacts(List<String> contacts){
+        return users.stream().filter(user ->
+                contacts.stream().anyMatch(contact -> contact.equals(user.phoneNumber))
+        ).collect(Collectors.toList());
     }
 
 }
